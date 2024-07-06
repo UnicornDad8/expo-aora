@@ -5,8 +5,11 @@ import { View, Text, ScrollView, Dimensions, Image, Alert } from "react-native";
 import { signIn } from "../../lib/appwrite";
 import { images } from "../../constants";
 import { CustomButton, FormField } from "../../components";
+import { useGlobalContext } from "../../context/GlobalProvider";
 
 const SignIn = () => {
+  const { setUser, setIsLogged } = useGlobalContext();
+
   const [isSubmitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
     email: "",
@@ -21,8 +24,8 @@ const SignIn = () => {
     setSubmitting(true);
     try {
       await signIn(form.email, form.password);
-      // setUser(result);
-      // setIsLogged(true);
+      setUser(result);
+      setIsLogged(true);
 
       router.replace("/home");
     } catch (error) {
