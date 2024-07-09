@@ -46,7 +46,7 @@ const Home = () => {
                   Welcome Back
                 </Text>
                 <Text className="text-2xl text-white font-psemibold">
-                  JSMastery
+                  Unicorn Dad
                 </Text>
               </View>
 
